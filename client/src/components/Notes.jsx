@@ -33,6 +33,7 @@ function Notes() {
     //   }
     // };
     // fetchData();
+    fetch();
   }, []);
 
   return (
