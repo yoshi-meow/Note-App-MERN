@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 function Notes() {
   const baseUrl = `https://note-app-mern-api.vercel.app/api/notes`;
   const [data, setData] = useState([]);
-  // const [isLoading, setIsLoading] = useState(true);
-  // const [error, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
