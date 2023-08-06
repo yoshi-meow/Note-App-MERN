@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import Button from "@mui/material/Button";
+import Alert from "@mui/material/Alert";
 
 function AddNote() {
   const baseUrl = `https://note-app-mern-api.vercel.app/api/notes`;
@@ -34,8 +37,17 @@ function AddNote() {
   return (
     <div>
       <Link to="/" className="back-button">
-        👈 back
+        <ArrowBackIcon />
       </Link>
+      <h1>Create Note</h1>
+
+      <p className="text-center">
+        {submitted && (
+          <Alert className="success-message" severity="success">
+            Note has been added!
+          </Alert>
+        )}
+      </p>
 
       <form onSubmit={addNote}>
         <div className="single-note">
@@ -60,17 +72,14 @@ function AddNote() {
             ></textarea>
           </div>
         </div>
-        <input
+        <Button
+          variant="contained"
+          size="large"
           type="submit"
-          value={submitted ? "Saving note..." : "💾 Save Note"}
           disabled={submitted}
-        />
-
-        <p className="text-center">
-          {submitted && (
-            <div className="success-message">Note has been added!</div>
-          )}
-        </p>
+        >
+          {submitted ? "Saving note..." : "Save"}
+        </Button>
       </form>
     </div>
   );

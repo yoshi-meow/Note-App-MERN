@@ -1,9 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Lilita+One&family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
 :root {
-    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    font-family: Roboto Mono;
     line-height: 1.5;
-    font-weight: 400;
     color: #213547;
-    background-color: #ffffff;
+    background-color: aliceblue;
     font-synthesis: none;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
@@ -14,8 +15,8 @@
   #root {
     margin: 0 auto;
     padding: 2rem;
-    border: 1px solid #007d9354;
-    border-radius: 24px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
     padding: 24px;
     background-color: white;
     width: 100%;
@@ -25,23 +26,27 @@
   
   
   /* Inputs */
-  input, textarea, select {
+  button, textarea, select, input {
     width: 100%;
     height: 30px;
     margin-bottom: 10px;
-    border: 0;
+    border: none;
+    outline: none;
     background-color: transparent;
   }
   
-  input[type="submit"] {
+  button[type="submit"] {
     margin-top: 20px;
-    background-color: #213547;
+    background-color: #7EAA92;
     color: #fff;
     border: 0;
     height: 40px;
     margin-bottom: 10px;
     text-transform: uppercase;
-    border-radius: 10px;
+  }
+
+  button[type="submit"]:hover {
+    background-color: #9ED2BE;
   }
   
   textarea {
@@ -57,7 +62,6 @@
   }
   
   a {
-    font-weight: 500;
     color: #007d93;
     text-decoration: inherit;
   }
@@ -83,11 +87,7 @@
   
   header {
     display: flex;
-    justify-content: space-between;
-    gap: 2rem;
-    border-bottom: 1px solid #007d9354;
-    margin-bottom: 2rem;
-    padding-bottom: 1rem;
+    
   }
   
   nav {
@@ -97,7 +97,7 @@
   }
   
   footer {
-    border-top: 1px solid #007d9354;
+    border-top: 1px solid darkgrey;
     text-align: center;
     padding-top: 1rem;
     margin-top: 3rem;
@@ -110,7 +110,7 @@
     gap: 0.6rem;
   }
   
-  /* Books */
+  /* Notes */
   ul.notes {
     display: flex;
     list-style: none;
@@ -122,9 +122,8 @@
   
   ul.notes li {
     flex: 1 0 21%;
-    background-color: #FCD633;
+    background-color: #FAF3F0;
     border-radius: 10px;
-    border: 2px solid #FCD633;
   }
   
   ul.notes li a {
@@ -139,25 +138,23 @@
   }
   
   ul.notes li:hover {
-    border: 2px solid rgb(171, 169, 0);
+    border: 1px solid darkgrey;
   }
   
   ul.notes h3 {
-    font-weight: 400;
     margin-top: 0;
     margin-bottom: 10px;
   }
   
   ul.notes p {
-    font-weight: 300;
     margin-top: 0;
     margin-bottom: 10px;
   }
   
   .single-note {
-    background-color: #FCD633;
+    background-color: #FAF3F0;
     border-radius: 10px;
-    border: 2px solid #FCD633;
+    border: 2px solid darkgray;
     padding: 20px;
   }
   
@@ -171,26 +168,39 @@
   }
   
   .add-note-button {
-    font-size: 1.5rem;
+    font-size: 5rem;
     text-align: center;
     justify-content: center;
     display: flex;
     align-items: center;
   }
+
+  .add > a {
+    font-size: 48px;
+    color: darkslategrey;
+  }
   
   .add-note-button > a {
-    display: flex;
+    display: flex !important;
     justify-content: center;
     align-items: center;
   }
    
   .delete {
-    border: 0;
-    background-color: transparent;
+    cursor: pointer;
+    float: right;
+    width: 30px;
+    margin: 5px;
+  }
+
+  .icon-delete:hover{
+    color: rgb(124, 124, 124);
   }
   
   .back-button {
     display: block;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
   }
   
   .breadcrump-nav {

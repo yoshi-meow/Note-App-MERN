@@ -3,7 +3,7 @@ import React from 'react'
 function Footer() {
   return (
     <footer>
-      &copy; CopyRight { new Date().getFullYear() }
+      &copy; { new Date().getFullYear() } by Yoshimeow 🙆😽❤️
     </footer>
   )
 }

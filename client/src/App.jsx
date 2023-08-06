@@ -7,11 +7,10 @@ import Footer from "./components/Footer";
 import AddNote from "./routes/Home/add-note";
 import UpdateNote from "./routes/Home/note";
 
-function App() {
+function App() { 
   return (
     <>
       <Router>
-        <Header/>
         <Routes>
           <Route path="/" element={<Home/>} />
           <Route path="/add-note" element={<AddNote />} />

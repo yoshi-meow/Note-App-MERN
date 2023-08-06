@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
+import Button from "@mui/material/Button";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 
 function UpdateNote() {
   const { id } = useParams();
@@ -13,7 +16,6 @@ function UpdateNote() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    
     const fetchData = async () => {
       try {
         const response = await fetch(backendBaseURL);
@@ -25,7 +27,6 @@ function UpdateNote() {
         const data = await response.json();
         setTitle(data.title);
         setDescription(data.description);
-
 
         setIsLoading(false);
       } catch (error) {
@@ -60,37 +61,32 @@ function UpdateNote() {
     }
   };
 
-
   const removeNote = async (e) => {
     e.preventDefault();
 
     try {
       const response = await fetch(backendBaseURL, {
-        method: "DELETE"
+        method: "DELETE",
       });
 
-      if(response.ok) {
-        navigate('/');
+      if (response.ok) {
+        navigate("/");
       }
-
-    } catch (error) {
-      
-    }
-  }
+    } catch (error) {}
+  };
 
   return (
     <div>
-
       <div className="breadcrump-nav">
-      <Link to="/" className="back-button">
-        👈 back
-      </Link>
-
+        <Link to="/" className="back-button">
+          <ArrowBackIcon />
+        </Link>
+      </div>
       <button onClick={removeNote} className="delete">
-        ❌ Remove
+          <DeleteForeverIcon fontSize="large" className="icon-delete"/>
       </button>
 
-      </div>
+      <h1>Update Note</h1>
 
 
       <form onSubmit={updateNote}>
@@ -116,11 +112,14 @@ function UpdateNote() {
             ></textarea>
           </div>
         </div>
-        <input
+        <Button
+          variant="contained"
+          size="large"
           type="submit"
-          value={submitted ? "Saving note..." : "💾 Save Note"}
           disabled={submitted}
-        />
+        >
+          {submitted ? "Saving note..." : "Save"}
+        </Button>
 
         <p className="text-center">
           {submitted && (
