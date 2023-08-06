@@ -2,26 +2,20 @@
     "version": 2,
     "builds": [
       {
-        "src": "client/package.json",
-        "use": "@vercel/node"
-      },
-      {
-        "src": "server/package.json",
+        "src": "*.js",
         "use": "@vercel/node"
       }
     ],
     "routes": [
       {
-        "src": "/api/notes",
+        "src": "/(.*)",
+        "dest": "/api",
         "methods": ["GET", "POST", "PUT", "PATCH", "DELETE"]
-      },
-      {
-        "src": "/(.*)"
       }
     ],
     "env": {
       "MONGODB_URI": "@mongodb-uri",
-      "API_KEY": "notes"
+      "API_KEY": "my-secret-api-key"
     }
-  }
+}
   

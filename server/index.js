@@ -13,10 +13,6 @@ app.use(cors());
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 
-
-
-
-
 // Get All Notes
 app.get("/api/notes", async (req, res) => {
     try {
