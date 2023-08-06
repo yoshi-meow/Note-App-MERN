@@ -5,7 +5,7 @@ function UpdateNote() {
   const { id } = useParams();
   const navigate = useNavigate();
 
-  const baseUrl = `https://note-app-mern-api.vercel.app/api/notes/${id}`;
+  const backendBaseURL = `https://note-app-mern-api.vercel.app/api/notes/${id}`;
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [submitted, setSubmitted] = useState(false);
@@ -16,7 +16,7 @@ function UpdateNote() {
     
     const fetchData = async () => {
       try {
-        const response = await fetch(baseUrl);
+        const response = await fetch(backendBaseURL);
 
         if (!response.ok) {
           throw new Error("Failed to fetch data.");
