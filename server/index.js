@@ -10,11 +10,11 @@ const PORT = process.env.PORT || 8000;
 
 connectDB();
 app.use(cors(
-  {
-    origin: ["https://note-app-mern-server-api.vercel.app"],
-    method: ["POST", "GET"],
-    credentials: true
-  }
+  // {
+  //   origin: [""],
+  //   method: ["POST", "GET"],
+  //   credentials: true
+  // }
 ));
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
