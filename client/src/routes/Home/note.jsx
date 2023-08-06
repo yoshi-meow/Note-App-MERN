@@ -5,7 +5,7 @@ function UpdateNote() {
   const { id } = useParams();
   const navigate = useNavigate();
 
-  // const baseUrl = `${import.meta.env.VITE_SERVER_URL}/api/notes/${id}`;
+  const baseUrl = `https://note-app-mern-api.vercel.app/api/notes/${id}`;
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [submitted, setSubmitted] = useState(false);
@@ -19,10 +19,10 @@ function UpdateNote() {
     //   .then((response) => response.json())
     //   .then((data) => setData(data))
     //   .catch((error) => console.error('Error fetching items:', error));
-
+    
     const fetchData = async () => {
       try {
-        const response = await fetch(`https://note-app-mern-api.vercel.app/api/notes/${id}`);
+        const response = await fetch(baseUrl);
 
         if (!response.ok) {
           throw new Error("Failed to fetch data.");
