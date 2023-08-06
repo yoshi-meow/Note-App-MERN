@@ -9,13 +9,7 @@ const PORT = process.env.PORT || 8000;
 
 
 connectDB();
-app.use(cors(
-  {
-    origin: ["https://note-app-mern.vercel.app/"],
-    method: ["POST", "GET", "PUT", "DELETE"],
-    credentials: true
-  }
-));
+app.use(cors());
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 
