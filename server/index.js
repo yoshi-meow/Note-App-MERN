@@ -9,13 +9,7 @@ const PORT = process.env.PORT || 8000;
 
 
 connectDB();
-app.use(cors(
-  {
-    origin: ["https://note-app-mern-api.vercel.app"],
-    method: ["POST", "GET", "PUT", "DELETE"],
-    credentials: true
-  }
-));
+app.use(cors());
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 
@@ -24,7 +18,7 @@ app.use(express.json());
 
 
 // Get All Notes
-app.get("/api/notes", async (req, res) => {
+app.get("https://note-app-mern-api.vercel.app/api/notes", async (req, res) => {
     try {
       const data = await Notes.find({});
   
@@ -40,7 +34,7 @@ app.get("/api/notes", async (req, res) => {
 });
 
 // Get Note by ID
-app.get("/api/notes/:id", async (req, res) => {
+app.get("https://note-app-mern-api.vercel.app/api/notes/:id", async (req, res) => {
   try {
     const noteId = req.params.id;
     const data = await Notes.findById(noteId);
@@ -56,7 +50,7 @@ app.get("/api/notes/:id", async (req, res) => {
 });
 
 // Create A Note
-app.post("/api/notes", async (req, res) => {
+app.post("https://note-app-mern-api.vercel.app/api/notes", async (req, res) => {
   try {
     const { title, description } = req.body;
 
@@ -75,7 +69,7 @@ app.post("/api/notes", async (req, res) => {
 });
 
 // Update A Note
-app.put("/api/notes/:id", async (req, res) => {
+app.put("https://note-app-mern-api.vercel.app/api/notes/:id", async (req, res) => {
   try {
     const noteId = req.params.id;
     const { title, description } = req.body;
@@ -96,7 +90,7 @@ app.put("/api/notes/:id", async (req, res) => {
 });
 
 // Delete A Note by ID
-app.delete("/api/notes/:id", async (req, res) => {
+app.delete("https://note-app-mern-api.vercel.app/api/notes/:id", async (req, res) => {
   try {
     const noteId = req.params.id;
     const data = await Notes.findByIdAndDelete(noteId);
