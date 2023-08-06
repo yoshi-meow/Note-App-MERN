@@ -35,7 +35,7 @@ function Notes() {
 
   return (
     <div>
-      {/* <pre>{JSON.stringify(data, null, 2)}</pre> */}
+      <pre>{JSON.stringify(data, null, 2)}</pre>
 
       {isLoading ? (
         <p>Loading...</p>
