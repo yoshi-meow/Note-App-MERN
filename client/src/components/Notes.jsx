@@ -35,13 +35,13 @@ function Notes() {
 
   return (
     <div>
-      <pre>{JSON.stringify(data, null, 2)}</pre>
+      {/* <pre>{JSON.stringify(data, null, 2)}</pre> */}
 
-      {isLoading ? (
+      {/* {isLoading ? (
         <p>Loading...</p>
       ) : error ? (
         <p>{error}</p>
-      ) : (
+      ) : ( */}
         <ul className="notes">
 
           <li className="add-note-button">
@@ -63,7 +63,7 @@ function Notes() {
             </li>
           ))}
         </ul>
-      )}
+      {/* )} */}
     </div>
   );
 }
