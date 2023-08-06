@@ -18,7 +18,7 @@ app.use(express.json());
 
 
 // Get All Notes
-app.get("https://note-app-mern-api.vercel.app/api/notes", async (req, res) => {
+app.get("/api/notes", async (req, res) => {
     try {
       const data = await Notes.find({});
   
@@ -34,7 +34,7 @@ app.get("https://note-app-mern-api.vercel.app/api/notes", async (req, res) => {
 });
 
 // Get Note by ID
-app.get("https://note-app-mern-api.vercel.app/api/notes/:id", async (req, res) => {
+app.get("/api/notes/:id", async (req, res) => {
   try {
     const noteId = req.params.id;
     const data = await Notes.findById(noteId);
@@ -50,7 +50,7 @@ app.get("https://note-app-mern-api.vercel.app/api/notes/:id", async (req, res) =
 });
 
 // Create A Note
-app.post("https://note-app-mern-api.vercel.app/api/notes", async (req, res) => {
+app.post("/api/notes", async (req, res) => {
   try {
     const { title, description } = req.body;
 
@@ -69,7 +69,7 @@ app.post("https://note-app-mern-api.vercel.app/api/notes", async (req, res) => {
 });
 
 // Update A Note
-app.put("https://note-app-mern-api.vercel.app/api/notes/:id", async (req, res) => {
+app.put("/api/notes/:id", async (req, res) => {
   try {
     const noteId = req.params.id;
     const { title, description } = req.body;
@@ -90,7 +90,7 @@ app.put("https://note-app-mern-api.vercel.app/api/notes/:id", async (req, res) =
 });
 
 // Delete A Note by ID
-app.delete("https://note-app-mern-api.vercel.app/api/notes/:id", async (req, res) => {
+app.delete("/api/notes/:id", async (req, res) => {
   try {
     const noteId = req.params.id;
     const data = await Notes.findByIdAndDelete(noteId);
