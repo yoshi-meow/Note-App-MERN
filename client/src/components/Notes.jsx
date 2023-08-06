@@ -7,19 +7,6 @@ function Notes() {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const [items, setItems] = useState([]);
-
-  useEffect(() => {
-    // Define the base URL of your backend API
-    const backendBaseURL = 'https://note-app-mern-api.vercel.app';
-
-    // Fetch items from the API
-    fetch(`${backendBaseURL}/api/items`)
-      .then((response) => response.json())
-      .then((data) => setItems(data))
-      .catch((error) => console.error('Error fetching items:', error));
-  }, []);
-
   useEffect(() => {
     const fetchData = async () => {
       try {
