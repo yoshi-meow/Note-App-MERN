@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 function Notes() {
   const baseUrl = `${import.meta.env.VITE_SERVER_URL}/api/notes`;
   const [data, setData] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState(null);
+  // const [isLoading, setIsLoading] = useState(true);
+  // const [error, setError] = useState(null);
 
   useEffect(() => {
     // Fetch items from the API

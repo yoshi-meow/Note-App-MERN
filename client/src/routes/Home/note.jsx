@@ -45,7 +45,7 @@ function UpdateNote() {
     e.preventDefault();
 
     try {
-      const response = await fetch(baseUrl, {
+      const response = await fetch(backendBaseURL, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
