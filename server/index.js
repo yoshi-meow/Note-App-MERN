@@ -18,12 +18,14 @@ app.use(express.json());
 app.get("/api/notes", async (req, res) => {
     try {
         const data = await Notes.find({});
+
         if(!data) {
-            throw new Error('An error occured while fetching notes.')
+            throw new Error('An error occured while fetching notes.');
         }
         res.status(201).json(data);
+        
     } catch (error) {
-        res.status(500).json({error: 'An error occured while fetching notes.....'})
+        res.status(500).json({error: 'An error occured while fetching notes.....'});
     }
 });
 
