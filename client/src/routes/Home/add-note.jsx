@@ -11,7 +11,7 @@ function AddNote() {
     e.preventDefault();
 
     try {
-      const response = await fetch('https://note-app-mern-api.vercel.app', {
+      const response = await fetch(`https://note-app-mern-api.vercel.app`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
