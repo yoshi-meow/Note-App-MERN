@@ -8,10 +8,8 @@ function Notes() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    // Define the base URL of your backend API
-    const backendBaseURL = 'https://note-app-mern-api.vercel.app';
     // Fetch items from the API
-    fetch(`${backendBaseURL}/api/notes`)
+    fetch(`https://note-app-mern-api.vercel.app/api/notes`)
       .then((response) => response.json())
       .then((data) => setData(data))
       .catch((error) => console.error('Error fetching items:', error));
