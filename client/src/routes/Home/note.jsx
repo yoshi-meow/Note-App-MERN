@@ -17,7 +17,9 @@ function UpdateNote() {
     // Fetch items from the API
     fetch(`${backendBaseURL}/api/notes`)
       .then((response) => response.json())
-      .then((data) => setData(data))
+      // .then((data) => setData(data))
+      .then((data) => setTitle(data.title))
+      .then((data) => setDescription(data.description))
       .catch((error) => console.error('Error fetching items:', error));
     // const fetchData = async () => {
     //   try {
@@ -70,7 +72,7 @@ function UpdateNote() {
     e.preventDefault();
 
     try {
-      const response = await fetch(baseUrl, {
+      const response = await fetch(backendBaseURL, {
         method: "DELETE"
       });
 
