@@ -10,11 +10,11 @@ const PORT = process.env.PORT || 8000;
 
 connectDB();
 app.use(cors(
-  // {
-  //   origin: [""],
-  //   method: ["POST", "GET"],
-  //   credentials: true
-  // }
+  {
+    origin: ["https://note-app-mern.vercel.app/"],
+    method: ["POST", "GET", "PUT", "DELETE"],
+    credentials: true
+  }
 ));
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
@@ -33,6 +33,7 @@ app.get("/api/notes", async (req, res) => {
       }
   
       res.status(201).json(data);
+
     } catch (error) {
       res.status(500).json({ error: "An error occured while fetching notes..." });
     }
