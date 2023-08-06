@@ -8,23 +8,31 @@ function Notes() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch(baseUrl);
+    // Define the base URL of your backend API
+    const backendBaseURL = 'https://note-app-mern-api.vercel.app';
+    // Fetch items from the API
+    fetch(`${backendBaseURL}/api/items`)
+      .then((response) => response.json())
+      .then((data) => setItems(data))
+      .catch((error) => console.error('Error fetching items:', error));
 
-        if (!response.ok) {
-          throw new Error("Failed to fetch data.");
-        }
+    // const fetchData = async () => {
+    //   try {
+    //     const response = await fetch(baseUrl);
 
-        const data = await response.json();
-        setData(data);
-        setIsLoading(false);
-      } catch (error) {
-        setError("Error fetching data. Please try again later.");
-        setIsLoading(false);
-      }
-    };
-    fetchData();
+    //     if (!response.ok) {
+    //       throw new Error("Failed to fetch data.");
+    //     }
+
+    //     const data = await response.json();
+    //     setData(data);
+    //     setIsLoading(false);
+    //   } catch (error) {
+    //     setError("Error fetching data. Please try again later.");
+    //     setIsLoading(false);
+    //   }
+    // };
+    // fetchData();
   }, []);
 
   return (
