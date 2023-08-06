@@ -2,7 +2,7 @@ require("dotenv").config();
 const cors = require("cors"); //Cross-origin resource sharing
 const express = require("express");
 const connectDB = require("./connectDB");
-const Notes = require('./models/notes')
+const Notes = require('./models/Notes')
 
 const app = express();
 const PORT = process.env.PORT || 8000;
@@ -27,7 +27,7 @@ app.get("/api/notes", async (req, res) => {
     } catch (error) {
       res.status(500).json({ error: "An error occured while fetching notes..." });
     }
-  });
+});
 
 
 
