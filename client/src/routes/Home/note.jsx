@@ -13,12 +13,6 @@ function UpdateNote() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    // const backendBaseURL = 'https://note-app-mern-api.vercel.app';
-    // // Fetch items from the API
-    // fetch(`${backendBaseURL}/api/notes`)
-    //   .then((response) => response.json())
-    //   .then((data) => setData(data))
-    //   .catch((error) => console.error('Error fetching items:', error));
     
     const fetchData = async () => {
       try {

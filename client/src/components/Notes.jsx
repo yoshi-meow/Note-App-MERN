@@ -2,35 +2,29 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 function Notes() {
-  const baseUrl = `${import.meta.env.VITE_SERVER_URL}/api/notes`;
+  const baseUrl = `https://note-app-mern-api.vercel.app/api/notes`;
   const [data, setData] = useState([]);
   // const [isLoading, setIsLoading] = useState(true);
   // const [error, setError] = useState(null);
 
   useEffect(() => {
-    // Fetch items from the API
-    fetch(`https://note-app-mern-api.vercel.app/api/notes`)
-      .then((response) => response.json())
-      .then((data) => setData(data))
-      .catch((error) => console.error('Error fetching items:', error));
+    const fetchData = async () => {
+      try {
+        const response = await fetch(baseUrl);
 
-    // const fetchData = async () => {
-    //   try {
-    //     const response = await fetch(baseUrl);
+        if (!response.ok) {
+          throw new Error("Failed to fetch data.");
+        }
 
-    //     if (!response.ok) {
-    //       throw new Error("Failed to fetch data.");
-    //     }
-
-    //     const data = await response.json();
-    //     setData(data);
-    //     setIsLoading(false);
-    //   } catch (error) {
-    //     setError("Error fetching data. Please try again later.");
-    //     setIsLoading(false);
-    //   }
-    // };
-    // fetchData();
+        const data = await response.json();
+        setData(data);
+        setIsLoading(false);
+      } catch (error) {
+        setError("Error fetching data. Please try again later.");
+        setIsLoading(false);
+      }
+    };
+    fetchData();
   }, []);
 
   return (
