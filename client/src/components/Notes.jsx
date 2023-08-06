@@ -11,7 +11,7 @@ function Notes() {
     // Define the base URL of your backend API
     const backendBaseURL = 'https://note-app-mern-api.vercel.app';
     // Fetch items from the API
-    fetch(`${backendBaseURL}/api/items`)
+    fetch(`${backendBaseURL}/api/notes`)
       .then((response) => response.json())
       .then((data) => setItems(data))
       .catch((error) => console.error('Error fetching items:', error));
@@ -37,7 +37,7 @@ function Notes() {
 
   return (
     <div>
-      <pre>{JSON.stringify(data, null, 2)}</pre>
+      {/* <pre>{JSON.stringify(data, null, 2)}</pre> */}
 
       {isLoading ? (
         <p>Loading...</p>
