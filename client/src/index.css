@@ -175,6 +175,10 @@
     align-items: center;
   }
 
+  textarea {
+    color: #757575; /* Change this to the desired color */
+  }
+
   .add > a {
     font-size: 48px;
     color: darkslategrey;
