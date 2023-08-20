@@ -176,7 +176,11 @@
   }
 
   textarea {
-    color: #757575; /* Change this to the desired color */
+    color: #757575; 
+  }
+
+  input {
+    color: #757575;
   }
 
   .add > a {
